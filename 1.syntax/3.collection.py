@@ -137,4 +137,7 @@ u_d_2 = {"b":777, "e":888}
 # d_1.update(u_d_1)
 d_1.update(u_d_2)
 
-print(d_1)
+# print(d_1)
+
+
+# *** Множество (set) ***
