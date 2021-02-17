@@ -80,7 +80,24 @@ my_list_2 = []
 # for _ in range(5):
 #     print("Hi")
 
-for val in range(10, 100, 10):
-    if val == 50:
-        break
-    print(val)
+# for val in range(10, 100, 10):
+#     if val == 50:
+#         break
+#     print(val)
+
+
+# *** Генератор списка ***
+
+# создание списка с числами в диапазоне от 0 до 9
+# my_list = [num for num in range(9)]
+
+# создание списка с числами в диапазоне от 10 до 90 с шагом 10
+my_list = [num for num in range(10, 100, 10)]
+
+#  то же самое но в обратоном порядке
+my_list = [num for num in range(10, 100, 10)[::-1]]
+
+my_list = [num for num in range(10, 100, 10)]
+my_list.reverse()
+
+# print(my_list)
