@@ -62,4 +62,85 @@ def func_6(name, age):
     s = f"Имя: {name}, Возраст: {age}"
     return s
 
-print(func_6("Peter", 25))
+# print(func_6("Peter", 25))
+
+
+# *** Безымянные функции (лямбда-выражения, лямбда-функции) ***
+
+# Создание лямбда-выражений
+# особенности: 
+# - всегда имеют аргументы (входы)
+# - всегда возвращает результат (выход)
+my_lambda = lambda x, y: x ** y
+
+# print(my_lambda(10, 3))
+
+# лямбда-выражение внутри генератора списка
+my_list = [(lambda arg: arg + 5)(item) for item in range(10)]
+
+# лямбда-выражения внутри списка
+lambda_list = [lambda a, b: a + b, lambda a, b: a - b, lambda a, b: a * b]
+
+# print(lambda_list[1](10, 5))
+
+
+# *** Декораторы ***
+
+# это функции, декорирующие другие функции,
+# т.е. добавляющие дополнительную функциональность.
+
+# определение декоратора
+def my_decorator(func_obj):
+    # определение функции-обертки
+    def wrapper():
+        # доп функциональность ДО вызова целевой функции
+        print("доп функциональность ДО")
+        # вызов целевой (декорируемой) функции
+        func_obj()
+        # доп функциональность ПОСЛЕ вызова целевой функции
+        print("доп функциональность ПОСЛЕ")
+
+    # возврат объекта функции-обертки
+    return wrapper
+# новый способ применения декоратора
+@my_decorator
+# целевая (декорируемая) функция
+def target_func():
+    print("Hello! I am target func.")
+
+# старый способ применения декоратора
+# target_func = my_decorator(target_func)
+
+# вызов задекорированной функции
+# target_func()
+
+
+# *** Пример калькулятор ***
+
+# определение функции нашего калькулятора
+def calculate(a, b, cmd):
+    if cmd == "+":
+        result = a + b
+    elif cmd == "-":
+        result = a - b
+    elif cmd == "*":
+        result = a * b
+    elif cmd == "/":
+        result = a / b
+    else:
+        result = f"Что это - {cmd}?"
+    return result
+
+print("Hello! I am Calculator :)")
+
+while True:
+    num_1 = int(input("Enter 1 number: "))
+    num_2 = int(input("Enter 2 number: "))
+    cmd = input("Enter the operation name: ")
+
+    if cmd == "stop":
+        print("Buy buy!")
+        break
+    else:
+        res = calculate(num_1, num_2, cmd)
+        print(f"Result = {res}")
