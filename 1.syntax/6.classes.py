@@ -60,12 +60,12 @@ class Mammal(Animal):
         print(f"I am Mammal. Legs: {self.num_legs}")
 
 # экземпляр класса Insect
-bug = Insect(6)
-bug.info()
+# bug = Insect(6)
+# bug.info()
 
 # экземпляр класса Mammal
 cat = Mammal(4)
-cat.info()
+# cat.info()
 
 class Human(Mammal):
     def __init__(self, num_legs, name):
@@ -77,6 +77,114 @@ class Human(Mammal):
 
 person_1 = Human(2, "John")
 
-print(person_1.num_legs)
-person_1.info()
-person_1.hello
+# print(person_1.num_legs)
+# person_1.info()
+# person_1.hello
+
+# *** Принцип Полиморфизма ***
+
+# поли + морф - разные формы чего-то
+
+# дочерний класс переопределяет метод родительского класса
+# родительский класс
+class A:
+    def func(self, arg):
+        res = arg + 2
+        print(f"Result: {res}")
+
+# дочерний класс
+class B(A):
+    def func(self, a, b):
+        res = a ** b
+        print(f"Result: {res}")
+
+# экземпляры классов
+a = A()
+b = B()
+
+# a.func(10)
+# b.func(2, 8)
+
+# применение методов перегрузки операторов ("магических" методов)
+
+class MyClass:
+    def __init__(self, param):
+        self.param = param
+# метод для возврата строки
+    def __str__(self):
+        return f"My param = {self.param}"
+
+    # метод позволяющий вызывать экземпляры класса
+    def __call__(self):
+        res = self.param * 10
+        print(res)
+
+x = MyClass(100)
+
+# передаем объект как строку
+# print(x)
+
+# вызов объекта как функцию
+# x()
+
+# *** Принцип Инкапсуляции ***
+
+# инкапсуляция - это сокрытие доступа к свойствам и методам
+
+# не строгая инкапсуляция
+class C:
+    def __init__(self):
+        # не строго инкапсулированное свойство
+        self._attr = 100
+    
+    # не строго инкапсулированное свойство
+    def _met(self):
+        print("Hello!:)")
+
+c_1 = C()
+
+# print(c_1._attr)
+# c_1._met()
+
+# строгая инкапсуляция
+class D:
+    def __init__(self):
+        # строго инкапсулированное свойство
+        self.__attr = 100
+    
+    # строго инкапсулированное свойство
+    def __met(self):
+        print("Hello!:)")
+
+    def public_met(self):
+        return self.__attr
+
+d_1 = D()
+
+# попытка доступа к инкапсулированным атрибуту и методу
+# print(d_1.__attr)
+# d_1.__met()
+
+#  обход инкапсуляции
+# print(d_1._D__attr)
+# d_1._D__met()
+
+# доступ к значению инкапсулированного атрибута через публичный метод
+# print(d_1.public_met())
+
+# *** принцип композиции (агрегации) ***
+
+class E:
+    def __call__(self, a):
+        return a ** 3
+
+class F:
+    def met(self, b):
+        # создается объект класса E
+        e = E()
+        res = e(b) + b
+        print(res)
+
+f = F()
+
+f.met(5)
