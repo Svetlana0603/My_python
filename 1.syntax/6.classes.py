@@ -187,4 +187,4 @@ class F:
 
 f = F()
 
-f.met(5)
+# f.met(5)
