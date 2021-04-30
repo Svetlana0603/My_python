@@ -1,0 +1,43 @@
+/* Селектор тега*/
+header{
+    /* свойство : значение  */
+    background-color: rgb(83, 11, 64);
+}
+
+p {
+border: 2px solid ;
+}
+
+/* селектор группы тегов */
+div, footer {
+    border: 2px solid #3c1a6923;
+    background-color: cadetblue;
+}
+
+/* селектор класса */
+._header {
+    height: 100px;
+}
+
+.div1 {
+    background-color: #fff;
+}
+
+.text_1 {
+    /* внешний отступ */
+    margin: 10px 20px 30px 40px;
+    /* внутренний отступ */
+    padding: 5px 20px;
+}
+
+/* селектор идентификатора */
+
+#p1 {
+    color: darkblue;
+}
+#p2 {
+    color: rgb(130, 130, 170);
+}
+#p3 {
+    color: darkgreen;
+}
