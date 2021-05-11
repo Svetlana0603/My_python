@@ -1,0 +1,25 @@
+ div {
+     border: 2px solid black;
+ }
+
+ /* header */
+ header {
+     background-color: #313131;
+     height: 100px;
+ }
+
+ /* main */
+.main {
+    background-color: #b8b8b8;
+    height: 800px;
+}
+/* селектор тега form класса "content" */
+.content form {
+    border: 2px solid black;
+    width: 70%;
+}
+
+ /* footer */
+ footer {
+     background-color: #313131;
+ }

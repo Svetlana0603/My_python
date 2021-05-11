@@ -1,0 +1,36 @@
+<!-- ссылка на шаблон -->
+{% extends "base.html" %}
+
+{% block main %}
+
+<div class="content"> 
+    <!-- Тег формы ввода информации -->
+    <form method="post">
+        <p>
+            <label>Web-site:</label>
+            <input type="text" name="site">
+        </p>
+        <p>
+            <label>Password:</label>
+            <input type="text" name="password">
+        </p>
+        <p>
+            <label>Number char:</label>
+            <input type="text" name="num" value="-">
+        </p>
+       <p id="button"> 
+            <input type="submit">
+       </p>
+       
+
+        <!-- Вывод результата -->
+        <div>
+            {% if message %}
+                <h3>{{ message }}</h3>
+            {% endif %}
+        </div>
+    </form>
+</div>
+    
+
+{% endblock %}
